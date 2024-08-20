@@ -35,6 +35,11 @@ db.products.find({ name: "card", qty: 15 }).explain("excutionStats");
 
 # Index
 
+Tại sao việc đánh chỉ mục lại giúp tăng tóc tốc độ truy vấn?
+
+MongoDB sử dụng B-tree (cây B) để tổ chức các index. Cấu trúc cây này giúp sắp xếp dữ liệu theo một thứ tự nhất định, cho phép MongoDB tìm kiếm, chèn, và xóa dữ liệu một cách nhanh chóng
+Khi một index được tạo trên một trường (hoặc một tổ hợp các trường), MongoDB lưu trữ các giá trị của trường đó trong một cây B, với các node lá chứa các giá trị đã được sắp xếp cùng với con trỏ đến vị trí của tài liệu trong bộ sưu tập (collection)
+
 1. Đánh chỉ mục một trường:
   + Ưu điểm: Đơn giản dễ bảo trì, tiết kiệm không gian lưu trữ, phù hợp cho việc truy vấn dữ liệu trên 1 trường thường xuyên.
   + Nhược điểm: Không hiệu quả cho việc truy vấn nhiều trường, các truy vấn phức tạp khó tối ưu
